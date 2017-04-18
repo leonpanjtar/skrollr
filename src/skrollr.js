@@ -1576,9 +1576,13 @@
 			skrollrBodyHeight = Math.max(_skrollrBody.offsetHeight, _skrollrBody.scrollHeight);
 		}
 
-		bodyHeight = Math.max(skrollrBodyHeight, body.scrollHeight, body.offsetHeight, documentElement.scrollHeight, documentElement.offsetHeight, documentElement.clientHeight);
+		bodyHeight = Math.max(/*skrollrBodyHeight,*/ body.scrollHeight, body.offsetHeight, documentElement.scrollHeight, documentElement.offsetHeight, documentElement.clientHeight);
+	
+		bodyHeight = bodyHeight - $(window).outerHeight() - ($(window).outerHeight() - $(window).height());
 
-		return bodyHeight - documentElement.clientHeight;
+		/// TODO browser hacks
+		
+		return  bodyHeight;
 	};
 
 	/**
