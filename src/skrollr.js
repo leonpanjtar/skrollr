@@ -1569,20 +1569,7 @@
 	 * Returns the height of the document.
 	 */
 	var _getDocumentHeight = function() {
-		var skrollrBodyHeight = 0;
-		var bodyHeight;
-
-		if(_skrollrBody) {
-			skrollrBodyHeight = Math.max(_skrollrBody.offsetHeight, _skrollrBody.scrollHeight);
-		}
-
-		bodyHeight = Math.max(/*skrollrBodyHeight,*/ body.scrollHeight, body.offsetHeight, documentElement.scrollHeight, documentElement.offsetHeight, documentElement.clientHeight);
-	
-		bodyHeight = bodyHeight - $(window).outerHeight() - ($(window).outerHeight() - $(window).height());
-
-		/// TODO browser hacks
-		
-		return  bodyHeight;
+		return $.documentHeight() - $.windowHeight();
 	};
 
 	/**
